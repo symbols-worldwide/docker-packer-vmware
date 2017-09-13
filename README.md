@@ -13,6 +13,6 @@ You should mount your directory containing your Packer project in /packer.
 
 Example:
 ```
-    docker run -t -v ~/my/packer/project:/packer --privileged symbols/packer-virtualbox
+    docker run -t -v ~/my/packer/project:/packer --privileged symbols/packer-vmware
 ```
 
