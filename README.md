@@ -11,7 +11,7 @@ Please be aware of the security implications of this.
 
 Packer uses the VMWare leases file to determine the guest IP address for SSH. For this you will need to map the DHCP leases file into the container. For example: 
 
-`-v /etc/vmware/vmnet8/dhcpd/dhcpd.leases:/etc/vmware/vmnet8/dhcpd/dhcpd.leases`
+`-v /etc/vmware/vmnet8/dhcpd/:/etc/vmware/vmnet8/dhcpd/`
 
 Be sure to use the correct vmnet device. By default, vmnet1 is for host-only networking and vmnet8 is for NAT. Packer is unable to determine the guest IP if using bridged networking.
 
@@ -23,7 +23,7 @@ You should mount your directory containing your Packer project in /packer.
 Example:
 ```
     docker run -t -v ~/my/packer/project:/packer \
-      -v /etc/vmware/vmnet8/dhcpd/dhcpd.leases:/etc/vmware/vmnet8/dhcpd/dhcpd.leases \
+      -v /etc/vmware/vmnet8/dhcpd/:/etc/vmware/vmnet8/dhcpd/ \
       --privileged --net=host symbols/packer-vmware
 ```
 
